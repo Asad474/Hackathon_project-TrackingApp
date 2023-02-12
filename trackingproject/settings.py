@@ -35,7 +35,7 @@ SECRET_KEY = 'django-insecure-k$mwhton-0w)9rlp+6cca7^#dew&(m&x4hyl#0n12#eqs+als@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 if not DEBUG:
-    CSRF_TRUSTED_ORIGINS = ['https://hackathonproject-trackingapp-production.up.railway.app']
+    CSRF_TRUSTED_ORIGINS = ['hackathonproject-trackingapp-production.up.railway.app']
 
 ALLOWED_HOSTS = ['hackathonproject-trackingapp-production.up.railway.app']
 

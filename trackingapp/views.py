@@ -126,15 +126,16 @@ def dashboard_activitiytracker(request):
 
     if request.method == 'POST':
         activity_name = request.POST.get('type')
-        duration = request.POST.get('duration')
-        MET = float(request.POST.get('met'))
-        calorie = (MET*3.5*user.userprofile.age)/200*duration/60
+        duration = int(request.POST.get('duration'))
+        met = float(request.POST.get('met'))
+        age = user.userprofile.age
+        calorie = (met*3.5*age)/200*duration/60
 
         form = Activity(
             user = user.userprofile,
             name = activity_name, 
             duration = duration,
-            met = MET,
+            met = met,
             calorie = calorie
         )
 

@@ -66,6 +66,24 @@
             background-color: #f2f2f2;
             font-weight: bold;
         }
+
+        .bt-link{ 
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .bt-link a{
+            text-decoration: none;
+            color: white;
+        }
+
+        .btn:hover{
+            background-color: #3e8e41;
+        }
          /*                                       responsive dashboard  */
         
         @media only screen and (max-width: 767px) {
@@ -93,8 +111,8 @@
 
     <div class="dash-board">
         <nav>
-            <a href="{% url 'dashboard-foodtracker' %}">Food Tracking</a> |
-            <a href="{% url 'dashboard-activitytracker' %}">Physical Activity</a>
+            <button class="bt-link"><a href="{% url 'dashboard-foodtracker' %}">Food Tracking</a></button> |
+            <button class="bt-link"><a href="{% url 'dashboard-activitytracker' %}">Physical Activity</a></button>
         </nav>
 
         {% block dashboard %}

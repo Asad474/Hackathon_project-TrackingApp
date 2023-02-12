@@ -92,7 +92,7 @@ def userform(request):
     u = request.user
 
     if len(Userprofile.objects.filter(user = u.id)) > 0:
-        return redirect('home')
+        return redirect('dashboard')
 
     form = ProfileForm()
     if request.method == 'POST':

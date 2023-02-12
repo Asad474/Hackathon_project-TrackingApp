@@ -60,6 +60,45 @@
         a {
         color: blue;
         }        
+
+        @media only screen and (max-width: 767px) {
+            .signin-container {
+              width: 90%;
+            }
+          
+            form {
+              padding: 20px;
+            }
+          
+            input[type="email"],
+            input[type="password"] {
+              font-size: 14px;
+            }
+          
+            button[type="submit"] {
+              font-size: 14px;
+            }
+        }
+          
+        /*                                                   responsive                                        */ 
+        @media only screen and (max-width: 365px) {
+            .signin-container {
+              width: 95%;
+            }
+          
+            form {
+              padding: 10px;
+            }
+          
+            input[type="email"],
+            input[type="password"] {
+              font-size: 12px;
+            }
+          
+            button[type="submit"] {
+              font-size: 12px;
+            }
+        }
     </style>
     
     <div class="signin-container">

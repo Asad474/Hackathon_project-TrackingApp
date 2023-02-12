@@ -72,14 +72,14 @@ def registeruser(request):
         if {'username' : username} in all_users_username:
             messages.error(request, f'User with username "{username}" already exists!!!')
 
-        if {'email' : email} in all_users_email:
+        elif {'email' : email} in all_users_email:
             messages.error(request, 'User with this email id already exists!!!')    
 
-        if password1 != password2:
+        elif password1 != password2:
             messages.error(request ,'Password and Confirm Password are not matching with each other!!!')
 
         else:
-            messages.error(request ,'Something went wrong!!!')    
+            messages.error(request ,'Something went wrong,try again!!!')    
 
         return redirect('registeruser')
 
@@ -123,6 +123,9 @@ def dashboard(request):
 @login_required(login_url = 'loginuser')
 def dashboard_activitiytracker(request):
     user = request.user
+    p = Userprofile.objects.filter(user = user)
+    if len(p) == 0:
+        return redirect('user-form')
 
     if request.method == 'POST':
         activity_name = request.POST.get('type')
@@ -178,12 +181,20 @@ def dashboard_foodtracker(request):
 @login_required(login_url = 'loginuser')
 def userprofile(request):
     user = request.user
+    p = Userprofile.objects.filter(user = user)
+    if len(p) == 0:
+        return redirect('user-form')
+    
     return render(request, 'trackingapp/userprofile.html', {'u' : user})
 
 
 @login_required(login_url = 'loginuser')
 def updateprofile(request):
     user = request.user
+    p = Userprofile.objects.filter(user = user)
+    if len(p) == 0:
+        return redirect('user-form')
+
     u = Userprofile.objects.get(id = user.userprofile.id)
     form = ProfileForm(instance = u)
 
@@ -191,6 +202,6 @@ def updateprofile(request):
         form = ProfileForm(request.POST, instance = u)
 
         if form.is_valid():
-            f = form.save()
+            form.save()
             return redirect('home')
     return render(request, 'trackingapp/userform.html', {'form' : form})

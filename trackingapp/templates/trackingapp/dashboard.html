@@ -1,0 +1,103 @@
+{% extends 'main.html' %}
+
+{% block content %}
+    <style>
+        .dash-board {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+
+        table {
+            margin: 0 auto;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+         /*                                       responsive dashboard  */
+        
+        @media only screen and (max-width: 767px) {
+            table {
+              width: 90%;
+              margin: 0 auto;
+            }
+
+            th, td {
+              font-size: 14px;
+            }
+        }
+          
+        @media only screen and (min-width: 350px) {
+            table {
+              width: 95%;
+              margin: 0 auto;
+            }
+
+            th, td {
+              font-size: 12px;
+            }
+        } 
+    </style>
+
+    <div class="dash-board">
+        <nav>
+            <a href="{% url 'dashboard-foodtracker' %}">Food Tracking</a> |
+            <a href="{% url 'dashboard-activitytracker' %}">Physical Activity</a>
+        </nav>
+
+        {% block dashboard %}
+        {% endblock %}
+    </div>
+{% endblock %}

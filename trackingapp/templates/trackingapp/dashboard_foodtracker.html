@@ -1,0 +1,61 @@
+{% extends 'trackingapp/dashboard.html' %}
+
+{% block dashboard %}
+    <h1 id="food-tracking" class="mt-3">Food Tracker</h1>
+
+    <form id="food-form" method="post">
+        {% csrf_token %}
+
+        <div>
+            <label for="food-item">Food Item:</label>
+            <input type="text" id="food-item" name="food-item">
+        </div>
+        <div>
+            <label for="serving-size">Serving Size (g):</label>
+            <input type="number" id="serving-size" name="serving-size">
+        </div>
+        <div>
+            <label for="protein">Protein (g):</label>
+            <input type="text" id="protein" name="protein">
+        </div>
+        <div>
+            <label for="fat">Fat (g):</label>
+            <input type="text" id="fat" name="fat">
+        </div>
+        <div>
+            <label for="carbohydrates">Carbohydrates (g):</label>
+            <input type="text" id="carbohydrates" name="carbohydrates">
+        </div>
+        <button type="submit">Add Food</button>
+    </form>
+
+    <div class="m-5">
+        <h2>Daily Food Intake</h2>
+
+        <table class="table">
+            <thead class="table-dark">
+                <tr>
+                    <th>Food Item</th>
+                    <th>Serving Size (g)</th>
+                    <th>Protein (g)</th>
+                    <th>Carbohydrates (g)</th>
+                    <th>Fat (g)</th>
+                    <th>Calories Burned</th>
+                </tr>
+            </thead>
+
+            <tbody class="table-light">
+                {% for f in food %}
+                    <tr>
+                        <td>{{ f.food }}</td>
+                        <td>{{ f.amount }}</td>
+                        <td>{{ f.protein }}</td>
+                        <td>{{ f.carbohydrates }}</td>
+                        <td>{{ f.fat }}</td>
+                        <td>{{ f.calorie }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

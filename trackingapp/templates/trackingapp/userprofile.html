@@ -1,0 +1,53 @@
+{% extends 'main.html' %}
+
+{% block content %}
+    <style>
+        .ts{ 
+            font-weight: 500;
+        }
+
+        #profile {
+            width: 500px;
+            margin: 0 auto;
+            margin-top: 20px;
+            text-align: center;
+        }
+          
+        .profile-details {
+            padding: 20px;
+        }
+
+        #edit-profile-btn {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+  
+        #edit-profile-btn:hover {
+            background-color: #3e8e41;
+        }
+
+        #edit-profile-btn a{
+            text-decoration: none;
+        }
+    </style>    
+
+    <div id="profile">
+        <h1 class="fw-bolder text-decoration-underline">My Profile</h1>
+        <div class="profile-details">
+            <p class="fs-3"><span class="ts">Username : </span><span id="name" class="fs-4">{{ u.username }}</span></p>
+            <p class="fs-3"><span class="ts">Email : </span><span id="email" class="fs-4">{{ u.email }}</span></p>
+            <p class="fs-3"><span class="ts">Age : </span><span id="age" class="fs-4">{{ u.userprofile.age }} years old</span></p>
+            <p class="fs-3"><span class="ts">Gender: </span><span id="gender" class="fs-4">{{ u.userprofile.gender }} </span></p>
+            <p class="fs-3"><span class="ts">Height: </span><span id="height" class="fs-4">{{ u.userprofile.height }} cm</span></p>
+            <p class="fs-3"><span class="ts">Weight: </span><span id="weight" class="fs-4">{{ u.userprofile.weight }} kg</span></p>
+        </div>
+
+        <button id="edit-profile-btn"><a href="{% url 'update-profile' %}" class="text-white">Edit Profile</a></button>
+    </div>
+{% endblock %}

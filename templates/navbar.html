@@ -1,0 +1,29 @@
+<nav>
+    <div class="left-side">
+      <div class="company-tag">Health Care App</div>
+    </div>
+
+    <div class="middle-side">
+      <ul>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+
+        {% if request.user.is_authenticated %}
+          <li><a href="{% url 'userprofile' %}">Userprofile</a></li>
+        {% endif %}
+
+        {% if request.user.is_superuser %}
+          <li><a href="{% url 'home' %}admin">Admin</a></li>
+        {% endif %}  
+      </ul>
+    </div>
+
+    <div class="right-side">
+        {% if request.user.is_authenticated %} 
+          <button class="signin-btn"> <a href="{% url 'logoutuser' %}">Sign Out</a></button>
+        {% else %}  
+          <button class="signin-btn"> <a href="{% url 'loginuser' %}">Sign In</a></button> 
+        {% endif %}
+    </div>
+</nav>

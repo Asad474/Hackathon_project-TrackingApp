@@ -1,0 +1,87 @@
+{% extends 'main.html' %}
+
+{% block content %}
+    <style>
+        .signin-container {
+            width: 500px;
+            margin: 0 auto;
+            text-align: center;
+        }
+          
+        h2 {
+            margin-bottom: 40px;
+            font-family: 'Poppins', sans-serif;
+        }
+          
+        form {
+            display: inline-block;
+            text-align: left;
+            padding: 40px;
+            background-color: #f2f2f2;
+            border-radius: 10px;
+        }
+          
+        .form-grp {
+            margin-bottom: 20px;
+        }
+
+        .form-grp a{
+            text-decoration: none;
+        }
+
+        .form-grp a:hover{
+            text-decoration: green;
+        }  
+          
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid gray;
+        }
+          
+        button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            background-color: blue;
+            color: white;
+            border-radius: 5px;
+            border: none;
+            margin-top: 20px;
+        }
+          
+        p {
+        margin-top: 40px;
+        }
+          
+        a {
+        color: blue;
+        }        
+    </style>
+    
+    <div class="signin-container">
+        <h2 class="mt-4">Sign in</h2>
+
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="form-grp">            
+                <input type="email" id="email" name="email" placeholder="email" required>
+            </div>
+
+            <div class="form-grp">            
+                <input type="password" id="password" name="password" placeholder="password" required>
+            </div>
+
+            <div class="form-grp">
+                <a href="{% url 'password_reset' %}">Forgot Password?</a>
+            </div>
+
+            <button type="submit">Sign in</button>
+        </form>
+
+        <p>Don't have an account? <a href="{% url 'registeruser' %}">Sign up</a></p>
+    </div>
+{% endblock %}

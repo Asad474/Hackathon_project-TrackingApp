@@ -1,0 +1,83 @@
+{% extends 'main.html' %}
+
+{% block content %}
+    <style>
+        .about-section {
+            width: 80%;
+            margin: 50px auto;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+            
+        .about-section h1 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            color: #333;
+        }
+            
+        .about-section h2 {
+            font-size: 24px;
+            margin-top: 50px;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .about-section p {
+            font-size: 18px;
+            line-height: 1.5;
+            color: #555;
+            margin-bottom: 30px;
+        }
+                
+        .about-section ul {
+            list-style: none;
+            padding: 0;
+        }
+                
+        .about-section li {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        button.contact-button {
+            background-color: #ff9000; 
+            border-radius: 10px; 
+            color: white; 
+            font-size: 16px; 
+            padding: 10px 20px; 
+            text-align: center; 
+        }
+                  
+        button.contact-button:hover {
+            background-color: #ffa500; 
+            cursor: pointer; 
+        }
+    </style>
+
+    <div class="about-section">
+        <h1>About Our Food and Fitness Tracker</h1>
+        <p>Welcome to our food and fitness tracker! We are here to help you reach your health and wellness goals by providing a simple and effective way to track your daily food intake and physical activity.</p>
+        <h2>Features</h2>
+
+        <ul>
+            <li>Food tracking: Keep track of the foods you eat and the calories you consume, with easy-to-use tools for logging your meals and snacks.</li>
+            <li>Fitness tracking: Log your physical activity, including workouts and other forms of exercise, and see how it impacts your calorie burn and overall health.</li>
+            <li>Progress tracking: See how far you've come with clear and interactive charts and graphs that show your food and fitness progress over time.</li>
+            <li>Goal setting: Set achievable goals for yourself, including weight loss or muscle gain, and receive personalized recommendations for how to reach those goals.</li>
+        </ul>
+
+        <h2>Why Use Our App</h2>
+        <p>Our food and fitness tracker is designed to make it easy and enjoyable to track your progress and reach your health and wellness goals. Whether you're trying to lose weight, build muscle, or simply maintain a healthy lifestyle, our app is here to help.</p>
+        <h2>Our Team</h2>
+        <p>Our team is dedicated to providing the best possible user experience and delivering valuable and actionable insights to help you achieve your health and wellness goals. With years of experience in the health and fitness industry, we are confident that you will love using our app.</p>
+        <h2>Contact Us</h2>
+        <p>If you have any questions or feedback, please don't hesitate to reach out to us. You can contact us at faishaldanish177@gmail.com. We'd love to hear from you!</p>
+        <button class="contact-button">Contact Us</button>
+    </div>
+
+    <script>
+        document.querySelector(".contact-button").addEventListener("click", function() {
+            alert("Thank you for reaching out! Our team will get back to you soon.");
+        }); 
+    </script>
+{% endblock %}

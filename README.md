@@ -18,7 +18,7 @@ $ python -m venv env(or any virtual environment name)
 $ source env/scripts/activate
 ```
 
-For running this project on local server, go to settings.py file in first_project folder and set
+For running this project on local server, go to settings.py file in tracking_project folder and set
 
 ```bash 
 DEBUG = True

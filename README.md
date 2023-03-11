@@ -24,6 +24,13 @@ For running this project on local server, go to settings.py file in trackingproj
 DEBUG = True
 ```
 
+Install the required packages from requirements.txt with the following command
+
+```bash 
+$ pip install -r requirements.txt
+```
+
+
 Running the app 
 
 ```bash 

@@ -15,6 +15,8 @@ from django.contrib.messages import constants as messages
 import dj_database_url
 
 import environ
+import os
+
 # Initialise environment variables
 env = environ.Env()
 environ.Env.read_env()
@@ -100,7 +102,7 @@ WSGI_APPLICATION = 'trackingproject.wsgi.application'
 #     }
 # }
 
-DATABASE_URL = env('DATABASE_URL')
+DATABASE_URL = os.environ.get('DATABASE_URL')
 
 DATABASES = {
     'default' : dj_database_url.config(default = DATABASE_URL, conn_max_age = 1000)
@@ -157,8 +159,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #SMTP Configuration
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = env('MAIL_HOST')
+EMAIL_HOST = os.environ.get('MAIL_HOST')
 EMAIL_USE_TLS = True
-EMAIL_PORT = env('MAIL_PORT')
-EMAIL_HOST_USER = env('HOST_EMAIL')
-EMAIL_HOST_PASSWORD = env('HOST_PASSWORD')
+EMAIL_PORT = os.environ.get('MAIL_PORT')
+EMAIL_HOST_USER = os.environ.get('HOST_EMAIL')
+EMAIL_HOST_PASSWORD = os.environ.get('HOST_PASSWORD')

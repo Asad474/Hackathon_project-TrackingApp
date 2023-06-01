@@ -39,11 +39,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 # if not DEBUG:
 #     CSRF_TRUSTED_ORIGINS = ['https://hackathonproject-trackingapp-production.up.railway.app']
 
-ALLOWED_HOSTS = ['hackathonproject-trackingapp-production.up.railway.app', '127.0.0.1']
+ALLOWED_HOSTS = ['food-and-activity-tracker-app.onrender.com', '127.0.0.1']
 
 
 # Application definition

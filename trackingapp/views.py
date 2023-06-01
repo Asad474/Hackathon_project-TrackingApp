@@ -51,12 +51,13 @@ def registeruser(request):
             form = SignUpForm(request.POST)
 
             if form.is_valid:                
-                user = form.save()
+                user = form.save(commit = False)
                 subject = 'Welcome to trackingapp!!!'
                 mesg = f'Hi {user.username}, thank you for registering!!!'
                 host_email = settings.EMAIL_HOST_USER
                 user_email_list = [user.email,]
                 send_mail(subject, mesg, host_email, user_email_list)
+                form.save()
                 messages.success(request, f'Hi {user.username}, thank you for registering!!!')
                 return redirect('loginuser')
 
